@@ -1,0 +1,65 @@
+---
+title: "Many Economists Project"
+subtitle: "Task 3"
+author: "Researcher ID: 579"
+output: 
+    pdf_document:
+        extra_dependencies: ["booktabs", "threeparttable"]
+date: "2023-09-28"
+bibliography: refs.bib  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+\begin{threeparttable}[htpb]
+\caption{The Effect of DACA on Full-Time Work}
+\label{tab_main}
+\begin{tabular}{lccc}
+\toprule
+                       & \multicolumn{3}{c}{Dep Var: Working Full Time}                                                                                      \\
+\cmidrule(lr){2-4}
+                       & \multicolumn{2}{c}{Two Way Fixed Effect Estimates}                               & \multicolumn{1}{c}{Callaway \& Sant'Anna (2021) DiD} \\
+\cmidrule(lr){2-3}\cmidrule(lr){3-4}
+                       & (1)                    & (2)         & (3)                           \\
+\midrule
+\cmidrule(lr){2-4}
+Intent-to-Treat effect & 0.022   & 0.022   & 0.031   \\
+                       & (0.012) & (0.013) & (0.069)   \\
+No. Observations                 & 17,382   & 17,382   & 17,382  \\
+\midrule
+Controls               & Yes                    & Yes         & Yes                \\
+Fixed Effects          & State, Year            & State, Year & None \\
+Anticipation           & Omit 2012              & Omit 2012   & Omit 2012       \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\begin{footnotesize}
+\item \textit{Notes:} Standard errors in parentheses. Standard errors for TWFE estimates are clustered at the state level, while the Callaway \& Sant'Anna (2021) DiD estimates are computed via a bootstrap. 
+ITT estimates for TWFE come from the interaction term of a regression with full-time hours on DACA Eligilibility, and after 2013 dummy (when the rule change applies) control variables and fixed effects. Estimates from Callaway \& Sant'Anna (2021) DiD are computed using the methods outlined in their paper.
+Control variables for the TWFE estimated include dummy variables for gender, marital status, whether Spanish is the main language of the individual, and age and age entered the US. 
+Control variables for the Doubly Robust method are gender, marital status, whether Spanish is the main language of the individual, and age.
+To account for the DACA rule change starting in mid-2012, all observations from 2012 are omitted.
+\end{footnotesize}
+\end{tablenotes}
+\end{threeparttable}
+
+\vspace{0.5cm}
+
+Table \ref{tab_main} reports the estimates of the introduction of DACA on the probability being employed full-time. 
+Columns 1  and 2 report intent-to-treat estimates from two way fixed effect models (TWFE).
+In contrast, Column 4 report estimates using the Doubly Robust method proposed by @callaway2021difference.
+Unlike the TWFE estimates, these should be robust to having multiple treatment periods, treatment effect heterogeneity and when the parallel trends assumption holds only after conditioning on covariates.
+Looking across columns we see the point estimates are comparabale across each specification.
+Our preferred estimate, Column 6, shows that non-citizens eligible for DACA are 3.1 percentage points more likely to be working than non-citizens ineligible for DACA after DACA became available, although this estimate is not statistically significant. 
+<!---With approximately 51 percent of all DACA eligible individuals working full-time pre-2012, the estimate implies DACA increases the likelihood of a DACA-eligible individual working by 11.4%. --->
+
+# References
+
+
+
+
+
+
