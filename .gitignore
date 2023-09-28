@@ -1,0 +1,11 @@
+sandbox/*
+out/*
+*.csv.gz
+.snakemake
+log
+.Rproj.user
+*.csv
+*.pdf
+src/data/*
+*.aux
+*.Rhistory
