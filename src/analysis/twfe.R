@@ -53,7 +53,7 @@ message("the regression formula is:")
 print(reg_fmla)
 
 out_model <- feols(as.formula(reg_fmla), 
-                  cluster =~ statefip + year,
+                  cluster =~ statefip,
                   data = df
                 )
 
